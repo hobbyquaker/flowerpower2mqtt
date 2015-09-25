@@ -1,0 +1,33 @@
+{
+  "name": "flowerpower2mqtt",
+  "description": "Connect Parrot Flower Power to MQTT",
+  "author": "Sebastian Raff <hq@ccu.io> (https://github.com/hobbyquaker)",
+  "license": "MIT",
+  "version": "0.0.1",
+  "preferGlobal": true,
+  "bin": "./index.js",
+  "dependencies": {
+    "async": "^1.4.2",
+    "flower-power": "^0.3.0",
+    "mqtt": "^1.4.1",
+    "yalm": "^2.0.0",
+    "yargs": "^3.25.0"
+  },
+  "keywords": [
+    "mqtt",
+    "smarthome",
+    "iot",
+    "sensor",
+    "water",
+    "temperature",
+    "sunlight",
+    "soil",
+    "moisture",
+    "conductivity",
+    "parrot flower power"
+  ],
+  "repository": "https://github.com/mqtt-smarthome/flowerpower2mqtt",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
