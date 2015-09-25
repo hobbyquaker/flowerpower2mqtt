@@ -7,30 +7,33 @@ This project just connects [Sandeep Mistry's](https://github.com/sandeepmistry) 
 ## Getting started
 
 You need [Node.js](https://nodejs.org). Since this depends on Noble you have to fulfill the prerequisites documented in the [Noble readme](https://github.com/sandeepmistry/noble). 
-On apt based Linux a ```apt-get install bluetooth bluez-utils libbluetooth-dev libudev-dev``` should be enough.
+On apt based Linux a ```sudo apt-get install bluetooth bluez-utils libbluetooth-dev libudev-dev``` should be enough.
 
-Then install flowerpower2mqtt: ```npm install flowerpower2mqtt -g``` and take a look at the available command line options by typing ```flowerpower2mqtt --help```
+Then install flowerpower2mqtt: ```sudo npm install flowerpower2mqtt -g``` and take a look at the available command line options by typing ```flowerpower2mqtt --help```
 
 
 ## MQTT Topics & Payloads
 
 Topic and payload structure follows [mqtt-smarthome](https://github.com/mqtt-smarthome) architecture. Default prefix is "flower".
 
-* &lt;prefix&gt;/status/&lt;name&gt;/soilTemperature (°C)
-* &lt;prefix&gt;/status/&lt;name&gt;/soilMoisture (%)
-* &lt;prefix&gt;/status/&lt;name&gt;/soilElectricalConductivity (mS/cm)
-* &lt;prefix&gt;/status/&lt;name&gt;/airTemperature (°C)
-* &lt;prefix&gt;/status/&lt;name&gt;/sunlight 
-* &lt;prefix&gt;/status/&lt;name&gt;/batteryLevel (%)
-* &lt;prefix&gt;/status/&lt;name&gt;/led 
-* &lt;prefix&gt;/set/&lt;name&gt;/led - If you publish a message to this topic the LED will start fading for given number of seconds. Accepts plain and JSON payload.
+#### These topics are published in a configurable interval with retain flag set to true
+* &lt;prefix&gt;/status/&lt;device&gt;/soilTemperature (°C)
+* &lt;prefix&gt;/status/&lt;device&gt;/soilMoisture (%)
+* &lt;prefix&gt;/status/&lt;device&gt;/soilElectricalConductivity (mS/cm)
+* &lt;prefix&gt;/status/&lt;device&gt;/airTemperature (°C)
+* &lt;prefix&gt;/status/&lt;device&gt;/sunlight 
+* &lt;prefix&gt;/status/&lt;device&gt;/batteryLevel (%)
+* &lt;prefix&gt;/status/&lt;device&gt;/led 
+
+#### These topics are subscribed. You should publish to them with retain flag set to false
+* &lt;prefix&gt;/set/&lt;device&gt;/led - If you publish a message to this topic the LED will start fading up and down for given number of seconds. Accepts plain and JSON payload.
 
 
 ## Todo
 
 * connection handling - keep connection alive for configurable timeout
-* support for activating live mode
-* support fw 1.1 - calibrated values
+* enable/disable live mode
+* fw 1.1 support - calibrated values
 
 ## License
 

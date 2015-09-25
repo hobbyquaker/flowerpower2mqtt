@@ -3,7 +3,7 @@
   "description": "Connect Parrot Flower Power to MQTT",
   "author": "Sebastian Raff <hq@ccu.io> (https://github.com/hobbyquaker)",
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "preferGlobal": true,
   "bin": "./index.js",
   "dependencies": {
@@ -24,9 +24,12 @@
     "soil",
     "moisture",
     "conductivity",
-    "parrot flower power"
+    "parrot flower power",
+    "ble",
+    "noble",
+    "bluetooth"
   ],
-  "repository": "https://github.com/mqtt-smarthome/flowerpower2mqtt",
+  "repository": "https://github.com/hobbyquaker/flowerpower2mqtt",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }
