@@ -3,7 +3,7 @@
   "description": "Connect Parrot Flower Power to MQTT",
   "author": "Sebastian Raff <hq@ccu.io> (https://github.com/hobbyquaker)",
   "license": "MIT",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "preferGlobal": true,
   "bin": "./index.js",
   "dependencies": {

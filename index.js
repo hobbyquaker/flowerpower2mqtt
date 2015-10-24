@@ -125,10 +125,13 @@ function led(id, length) {
     var flowerPower = dev[id];
     var cmds = [
         function (callback) {
-            log.debug(flowerPower.id, 'connectAndSetup');
-            flowerPower.connectAndSetup(callback);
+            log.info(flowerPower.id, 'connectAndSetup');
+            flowerPower.connectAndSetup(function (err) {
+                if (err) log.error(flowerPower.id, err);
+                callback(err);
+            });
         },
-        function (callback){
+        function (callback) {
             log.debug(flowerPower.id, '> ledPulse');
             flowerPower.ledPulse(function (err) {
                 if (!err) publish(id, 'led', 1);
@@ -157,8 +160,7 @@ function pollData(id) {
     var flowerPower = dev[id];
     async.series([
         function (callback) {
-
-            log.debug(flowerPower.id, 'connectAndSetup');
+            log.info(flowerPower.id, 'connectAndSetup');
             flowerPower.connectAndSetup(function (err) {
                 if (err) log.error(flowerPower.id, err);
                 callback(err);
@@ -305,12 +307,12 @@ function pollData(id) {
 function discover(callback) {
 
     var onDiscover = function (flowerPower) {
-        log.debug('< discoverAll', flowerPower.address, flowerPower.name);
+        log.info('< discoverAll', flowerPower.address, flowerPower.name);
 
         dev[flowerPower.id] = flowerPower;
 
         flowerPower.on('disconnect', function() {
-            log.debug(flowerPower.id, 'disconnected');
+            log.info(flowerPower.id, 'disconnected');
         });
 
         flowerPower.on('sunlightChange', function (sunlight) {
@@ -341,11 +343,11 @@ function discover(callback) {
         pollData(flowerPower.id);
 
     };
-    log.debug('> FlowerPower.discoverAll');
+    log.info('> FlowerPower.discoverAll');
     FlowerPower.discoverAll(onDiscover);
 
     setTimeout(function (callback) {
-        log.debug('FlowerPower.stopDiscoverAll');
+        log.info('FlowerPower.stopDiscoverAll');
         FlowerPower.stopDiscoverAll(onDiscover);
         if (typeof callback === 'function') callback();
     }, 60000);

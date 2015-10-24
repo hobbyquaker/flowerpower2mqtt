@@ -2,7 +2,6 @@ var pkg = require('./package.json');
 var config = require('yargs')
     .usage(pkg.name + ' ' + pkg.version + '\n' + pkg.description + '\n\nUsage: $0 [options]')
     .describe('v', 'possible values: "error", "warn", "info", "debug"')
-    .describe('m', 'JSON file containing HomeKit Services to MQTT mapping definitions. See Readme.')
     .describe('n', 'instance name. used as mqtt client id and as prefix for connected topic')
     .describe('u', 'mqtt broker url. See https://github.com/mqttjs/MQTT.js#connect-using-a-url')
     .describe('i', 'polling interval in minutes')
