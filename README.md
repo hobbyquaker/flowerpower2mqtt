@@ -1,6 +1,8 @@
 # flowerpower2mqtt
 
-Publish values from [Parrot Flower Power](http://www.parrot.com/usa/products/flower-power/) to MQTT
+[![mqtt-smarthome](https://img.shields.io/badge/mqtt-smarthome-blue.svg)](https://github.com/mqtt-smarthome/mqtt-smarthome)
+
+> Publish values from [Parrot Flower Power](http://www.parrot.com/usa/products/flower-power/) to MQTT
 
 This project just connects [Sandeep Mistry's](https://github.com/sandeepmistry) [awesome Node module](https://github.com/sandeepmistry/node-flower-power) to MQTT - all credits belong to him.
 
